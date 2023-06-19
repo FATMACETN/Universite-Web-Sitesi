@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Başvuru Yap</title>
+    <!--Bootstrap linki-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <!--İkon linki-->
+    <script src="https://kit.fontawesome.com/c51b883833.js" crossorigin="anonymous"></script>
+    <!--JQUERY linki-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <script src="session.js"></script>
+
+    <style>
+        * {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        #footer {
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            margin-top: 20%;
+        }
+    </style>
+
+
+
+
+
+
+</head>
+
+<body>
+    <header class="p-1 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="https://www.cumhuriyet.edu.tr/"
+                    class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none"
+                    target="_blank"> <img src="https://www.cumhuriyet.edu.tr/images/sivas_cumhuriyet_universitesi_logo_tr.png"
+                        alt="Cumhuriyet Üniversitesi" width="100%" height="200px"></a>
+
+                <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+                    <li><a href="index.html" class="nav-link text-white"><i class="fa-solid fa-house"></i>Anasayfa</a>
+                    </li>
+                    <li><a href="hakkinda.html" class="nav-link text-white" style="font-size: medium;">Hakkında</a></li>
+                    <li><a href="iletisim.html" class="nav-link text-white" style="font-size: medium;">İletişim</a></li>
+
+                </ul>
+
+                <div class="text-end" id="header_sag">
+                    <div id="btn_div">
+                        <a href="#"><button type="button"
+                                class="btn btn-light text-dark me-2 btn-sm">Giriş</button></a>
+                        <a href="C:\Users\yagmu\OneDrive\Masaüstü\erasmusWebsite\kaydol.html"><button type="button"
+                                class="btn btn-secondary btn-sm">Kayıt ol</button></a>
+                    </div>
+                </div>
+                <div class="row text-end">
+                    <div class="col">
+                        <button id="logout_Btn" type="button" class="btn btn-outline-secondary btn-sm"
+                            style="display:none" onclick="logout()">Çıkış
+                        </button>
+                    </div>
+                    <div class="col">
+                        <button id="portal_btn" type="button" class="btn btn-outline-secondary btn-sm"
+                            onclick="window.location.href = 'portal.html'" style="display: none;">Hesap
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col-12 my-5">
+                <h3 class="text-center">Başvuru Formu</h3>
+            </div>
+        </div>
+
+        <form id="basvuru_formu">
+            <div class="row justify-content-center">
+
+                <div class="col-4"></div>
+
+                <!--ANA SÜTUN 1-->
+
+                <div class="col-4  border border-danger">
+
+                    <div class="row justify-content-center">
+                        <div class="col-6 py-2">
+                            <h3>Kişisel Bilgiler</h3>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center"><!--İSİM/SOYİSİM-->
+                        <div class="col-6 form-group">
+                            <label for="isim" class="col-form-label">İsim:</label>
+                            <input type="text" id="isiminput" class="form-control form-control-sm" value="" required>
+                            <div class="valid-feedback"></div>
+                        </div>
+                        <div class="col-6 form-group">
+                            <label for="soyisim" class="col-form-label">Soyisim:</label>
+                            <input type="text" id="soyisiminput" class="form-control form-control-sm" value="" required>
+                            <div class="valid-feedback"></div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center"><!--TC/DTARİH-->
+                        <div class="col-6 form-group">
+                            <label for="tc" class="col-form-label">T.C. Kimlik / Pasaport No:</label>
+                            <input type="text" id="tcinput" class="form-control form-control-sm" value="" required>
+                            <div class="valid-feedback"></div>
+                        </div>
+                        <div class="col-6 form-group">
+                            <label for="dtarih" class="col-form-label ">Doğum Tarihi:</label>
+                            <input type="date" id="dtarihinput" class="form-control form-control-sm" value="" required>
+                            <div class="valid-feedback"></div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center"><!--CİNSİYET/UYRUK-->
+                        <div class="col-6 form-group">
+                            <label for="cinsiyet" class="col-form-label">Cinsiyet:</label>
+                            <input type="text" id="cinsiyetinput" class="form-control form-control-sm" value=""
+                                required>
+                            <div class="valid-feedback"></div>
+                        </div>
+                        <div class="col-6 form-group">
+                            <label for="uyruk" class="col-form-label">Uyruk:</label>
+                            <input type="text" id="uyrukinput" class="form-control form-control-sm" value="" required>
+                            <div class="valid-feedback"></div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center"><!--2.uyruk-->
+
+                        <div class="row">
+                            <div class="col-auto py-md-3">
+                                <span>İkinci bir uyruğunuz var mı?</span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-3 py-3 form-check form-group">
+
+                                <input type="radio" class="form-check-input" id="uvar" name="ikinciuyruk"
+                                    onclick="iuyruk()" required>
+                                <label class="form-check-label" for="validationFormCheck2">var</label>
+
+                            </div>
+
+                            <div class="col-3 py-3 form-check mb-3 form-group">
+                                <input type="radio" class="form-check-input" id="uyok" name="ikinciuyruk"
+                                    onclick="iuyruk()" required>
+                                <label class="form-check-label" for="validationFormCheck3">yok</label>
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="col-6 form-group">
+                                <label for="uaciklama" class="col-form-label">Açıklama:</label>
+
+                                <input type="text" id="uaciklama" placeholder="Var ise nedir?"
+                                    class="form-control form-control-sm"  required disabled>
+                                <div class="valid-feedback"></div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row justify-content-center"><!--ENGEL/AÇIKLAMA-->
+
+                        <div class="row">
+                            <div class="col-auto py-md-3">
+                                <span>Engel Durumu:</span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-3 py-3 form-check form-group">
+
+                                <input type="radio" class="form-check-input" id="evar" name="engel" onclick="engelli()"
+                                    required>
+                                <label class="form-check-label" for="validationFormCheck2">var</label>
+
+                            </div>
+
+                            <div class="col-3 py-3 form-check mb-3 form-group">
+                                <input type="radio" class="form-check-input" id="eyok" name="engel" onclick="engelli()"
+                                    required>
+                                <label class="form-check-label" for="validationFormCheck3">yok</label>
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="col-6 form-group">
+                                <label for="aciklama" class="col-form-label">Açıklama:</label>
+
+                                <input type="text" id="aciklama" placeholder="Var ise nedir?Açıklayınız."
+                                    class="form-control form-control-sm" required disabled>
+                                <div class="valid-feedback"></div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row justify-content-center">
+                        <div class="col-12 py-2">
+                            <hr>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="col-6 py-2">
+                            <h3>İletişim Bilgileri</h3>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center"><!--TELEFON/EMAİL-->
+                        <div class="col-6 form-group">
+                            <label for="telefon" class="col-form-label">Telefon:</label>
+                            <input type="number" id="telefoninput" class="form-control form-control-sm" value=""
+                                required>
+                            <div class="valid-feedback"></div>
+                        </div>
+                        <div class="col-6 form-group">
+                            <label for="mail" class="col-form-label">E-mail:</label>
+                            <input type="email" id="emailinput" class="form-control form-control-sm" value="" required>
+                            <div class="valid-feedback"></div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row justify-content-center"><!--ADRES/SEHİR-->
+                        <div class="col-6 form-group">
+                            <label for="adres" class="col-form-label">Adres:</label>
+                            <textarea id="adresinput" rows="1" class="form-control form-control-sm"
+                                placeholder="Cadde,Sokak,Apt..." value="" required></textarea>
+                            <div class="valid-feedback"></div>
+                        </div>
+                        <div class="col-3 form-group">
+                            <label for="sehir" class="col-form-label">Şehir:</label>
+                            <input type="text" id="sehirinput" class="form-control form-control-sm" value="" required>
+                            <div class="valid-feedback"></div>
+                        </div>
+                        <div class="col-3 form-group">
+                            <label for="ulke" class="col-form-label">Ülke:</label>
+                            <input type="text" id="ulkeinput" class="form-control form-control-sm" value="" required>
+                            <div class="valid-feedback"></div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="col-12 py-2">
+                            <hr>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="col-6 py-2">
+                            <h3>Eğitim Bilgileri</h3>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center"><!--MDURUM/ÜNİ-->
+                        <div class="col-6 form-group">
+                            <label for="mdurum" class="col-form-label">Mezuniyet Durumu:</label>
+                            <select class="form-select form-select-m mb-3" aria-label="select example" id="mduruminput"
+                                value="" required>
+                                <option value="">Seç</option>
+                                <option value="1">Lisans</option>
+                                <option value="2">Yükseklisans</option>
+                                <option value="3">Doktora</option>
+
+                            </select>
+                            <div class="valid-feedback"></div>
+                        </div>
+                        <div class="col-6 form-group">
+                            <label for="uni" class="col-form-label">Üniversite:</label>
+                            <input type="text" id="uniinput" class="form-control form-control-sm" value="" required>
+                            <div class="valid-feedback"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="row justify-content-center"><!--BÖLÜM-->
+                        <div class="col-6 form-group">
+                            <label for="inputName" class="col-form-label">Bölüm:</label>
+                            <input type="text" id="boluminput" class="form-control form-control-sm" value="" required>
+                            <div class="valid-feedback"></div>
+                        </div>
+                        <div class="col-6 form-group">
+                            <label for="inputName" class="col-form-label ">Mezuniyet Tarihi:</label>
+                            <input type="date" id="mtarihinput" class="form-control form-control-sm" value="" required>
+                            <span><i style="font-size: smaller;">Devam ediyor ise tahmini mezuniyet tarihinizi
+                                    giriniz.</i></span>
+                            <div class="valid-feedback"></div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center"><!--GPA-->
+                        <div class="col-6 form-group">
+                            <label for="inputName" class="col-form-label">GPA:</label>
+                            <input type="number" step="0.05" id="gpainput" class="form-control form-control-sm" value=""
+                                required>
+                            <div class="valid-feedback"></div>
+                        </div>
+                    </div>
+                    <br>
+
+
+                    <div class="row" style="align-self: center;">
+                        <div class="col">
+                            <button type="submit" class="w-100 btn btn-sm btn-outline-dark">Gönder</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="col-4"></div>
+            </div>
+        </form>
+
+    </div>
+
+    <script>//ENGEL DURUMU HK
+        function engelli() {
+            var evar = document.getElementById("evar");
+            var eyok = document.getElementById("eyok");
+            var aciklamaInput = document.getElementById("aciklama");
+
+
+            if (evar.checked) {
+                aciklamaInput.removeAttribute("disabled");
+            }
+            if (eyok.checked) {
+                aciklamaInput.setAttribute("disabled", true);
+            }
+        };
+    </script>
+
+    <script>//UYRUK DURUMU HK
+        function iuyruk() {
+            var uvar = document.getElementById("uvar");
+            var uyok = document.getElementById("uyok")
+            var uaciklama = document.getElementById("uaciklama");
+
+
+            if (uvar.checked) {
+                uaciklama.removeAttribute("disabled");
+            }
+            if (uyok.checked) {
+                uaciklama.setAttribute("disabled", true);
+            }
+        };
+    </script>
+
+    <script>
+        document.getElementById("basvuru_formu").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            var form_dizi=[(document.getElementById("isiminput").value),(document.getElementById("soyisiminput").value),(document.getElementById("tcinput").value),(document.getElementById("aciklama").value),(document.getElementById("uaciklama").value),(document.getElementById("dtarihinput").value),(document.getElementById("cinsiyetinput").value),(document.getElementById("uyrukinput").value),(document.getElementById("telefoninput").value),(document.getElementById("emailinput").value),(document.getElementById("adresinput").value),(document.getElementById("sehirinput").value),(document.getElementById("ulkeinput").value),(document.getElementById("mduruminput").value),(document.getElementById("uniinput").value),(document.getElementById("boluminput").value),(document.getElementById("mtarihinput").value),(document.getElementById("gpainput").value)]
+            
+            sessionStorage.setItem("form_dizi", form_dizi);
+
+            window.location = 'portal.html';
+
+        });
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+    <div class="container" id="footer"> <!--FOOTER-->
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"><svg class="bi" width="30"
+                        height="24">
+                        <use xlink:href="#bootstrap" />
+                    </svg></a>
+                <span class="mb-3 mb-md-0 text-muted">&copy; 2022 Company, Inc</span>
+            </div>
+
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="m-3"><a class="text-muted" href="https://www.facebook.com/Khasedutr" target="_blank"><i
+                            class="fa-brands fa-facebook fa-xl"></i></a></li>
+                <li class="m-3"><a class="text-muted" href="https://twitter.com/khasedutr" target="_blank"><i
+                            class="fa-brands fa-twitter fa-xl"></i></svg></a></li>
+                <li class="m-3"><a class="text-muted" href="https://www.instagram.com/khasedutr/" target="_blank"><i
+                            class="fa-brands fa-instagram fa-xl"></i></a></li>
+            </ul>
+        </footer>
+    </div>
+
+
+    <script>
+        checkLogin();
+    </script>
+
+</body>
+
+
+</html>

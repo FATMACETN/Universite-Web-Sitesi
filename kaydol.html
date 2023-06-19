@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayıt</title>
+
+    <!--Bootstrap linki-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <!--İkon linki-->
+    <script src="https://kit.fontawesome.com/c51b883833.js" crossorigin="anonymous"></script>
+    <!--JQUERY linki-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+
+    <style>
+        * {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+
+        #footer {
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            margin-top: 20%;
+        }
+    </style>
+
+    <script>/*HESAP OLUSTUR BUTON*/
+        function hesapolustur() {
+
+            var kullanici = [(document.getElementById("ad_soyad").value), (document.getElementById("kullanici_adi").value), (document.getElementById("email").value), (document.getElementById("sifre").value)];
+            var sifre2 = document.getElementById("reSifre").value;
+            var yazi = document.getElementById("sonuc");
+
+            var ePattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+            // test()=> içerideki değerin eşleşip eşleşmediğini kontrol. Bu durumda kullanıcı2 nin ePattern ile eşleşip eşleşmediğine bakar. Eşleşirse true değer döndürüp if koşulunu gerçekleştirir.
+            if (kullanici[3] == sifre2 && kullanici[0] !== "" && kullanici[1] !== "" && kullanici[2] !== "" && kullanici[3] !== "" && ePattern.test(kullanici[2])) {
+                yazi.innerHTML = "Hesap Oluşturuldu! Giriş Yapabilirsiniz.";
+                yazi.style.color = "green";
+
+                sessionStorage.setItem("user", kullanici);
+
+                setTimeout(function () {
+                    window.location.href = "giris.html";
+                }, 500);
+            }
+
+            else {
+                yazi.innerHTML = "Bilgilerinizi doğru giriniz.";
+                yazi.style.color = "red";
+            }
+        }
+    </script>
+
+
+</head>
+
+<body>
+    <header class="p-1 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="https://www.cumhuriyet.edu.tr/"
+                    class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none"
+                    target="_blank"> <img src="https://www.cumhuriyet.edu.tr/images/sivas_cumhuriyet_universitesi_logo_tr.png"
+                        alt="Cumhuriyet Üniversitesi" width="100%" height="200px"></a>
+
+                <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+                    <li><a href="index.html" class="nav-link text-white"><i class="fa-solid fa-house"></i>Anasayfa</a>
+                    </li>
+                    <li><a href="hakkinda.html" class="nav-link text-white" style="font-size: medium;">Hakkında</a></li>
+                    <li><a href="iletisim.html" class="nav-link text-white" style="font-size: medium;">İletişim</a></li>
+
+                </ul>
+
+                <div class="text-end" id="header_sag">
+                    <div id="btn_div">
+                        <a href="giris.html"><button type="button" class="btn btn-secondary btn-sm">Giriş</button></a>
+                    </div>
+                </div>
+                <div class="row text-end">
+                    <div class="col">
+                        <button id="logout_Btn" type="button" class="btn btn-outline-secondary btn-sm"
+                            style="display:none" onclick="logout()">Çıkış
+                        </button>
+                    </div>
+                    <div class="col">
+                        <button id="portal_btn" type="button" class="btn btn-outline-secondary btn-sm"
+                            onclick="window.location.href = 'portal.html'" style="display: none;">Hesap
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <br><br><br><br><br>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-6" style="padding-top: 5%;">
+                <img src="https://cdn.dribbble.com/users/1913706/screenshots/4117171/dribbble__1_.gif"
+                    style="border-radius:10px;" width="500px" height="300px" alt="bilg_gif">
+
+            </div>
+            <div class="col-4 border border-danger" style="align-self: center;">
+
+                <form>
+                    <br>
+                    <h3 text-align="center"><i class="fa-sharp fa-solid fa-user-plus">&nbsp;&nbsp;</i>Kayıt Ol</h3>
+                    <div class="form-floating py-2">
+                        <input type="text" class="form-control" id="ad_soyad" placeholder="Ad Soyad">
+                        <label for="floatingInput">Ad Soyad</label>
+                    </div>
+                    <div class="form-floating py-2">
+                        <input type="text" class="form-control" id="kullanici_adi" placeholder="Kullanıcı Adı">
+                        <label for="floatingInput">Kullanıcı Adı</label>
+                    </div>
+                    <div class="form-floating py-2">
+                        <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                        <label for="floatingInput">Email</label>
+                    </div>
+                    <div class="form-floating py-2">
+                        <input type="password" class="form-control" id="sifre" placeholder="Şifrenizi Giriniz">
+                        <label for="floatingPassword">Şifre</label>
+                    </div>
+                    <div class="form-floating py-2">
+                        <input type="password" class="form-control" id="reSifre" placeholder="Tekrar Şifrenizi Giriniz">
+                        <label for="floatingPassword">Şifrenizi tekrar girin</label>
+                    </div>
+
+                </form>
+                <p id="sonuc"></p>
+                <button class="w-100 btn btn-sm btn-outline-dark" onclick="hesapolustur()">Kayıt ol</button>
+
+
+                <br><br>
+
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+
+    <div class="container" id="footer"> <!--FOOTER-->
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"><svg class="bi" width="30"
+                        height="24">
+                        <use xlink:href="#bootstrap" />
+                    </svg></a>
+                    <span class="mb-3 mb-md-0 text-muted">&copy; 2023 Sivas Cumhuriyet Üniversitesi , Fatma Çetin</span>
+                </div>
+    
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <li class="m-3"><a class="text-muted" href="https://www.facebook.com/cumunivkurumsal/" target="_blank"><i
+                                class="fa-brands fa-facebook fa-xl"></i></a></li>
+                    <li class="m-3"><a class="text-muted" href="https://twitter.com/cumunivkurumsal" target="_blank"><i
+                                class="fa-brands fa-twitter fa-xl"></i></svg></a></li>
+                    <li class="m-3"><a class="text-muted" href="https://www.instagram.com/cumunivkurumsal/" target="_blank"><i
+                                class="fa-brands fa-instagram fa-xl"></i></a></li>
+            </ul>
+        </footer>
+    </div>
+
+
+
+</body>
+
+</html>

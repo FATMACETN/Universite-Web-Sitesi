@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkında</title>
+
+    <!--Bootstrap linki-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <!--İkon linki-->
+    <script src="https://kit.fontawesome.com/c51b883833.js" crossorigin="anonymous"></script>
+    <!--JQUERY linki-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <script src="session.js"></script>
+
+    <style>
+        * {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        p {
+            text-indent: 50px;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: larger;
+        }
+
+        #footer {
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            margin-top: 20%;
+        }
+
+        #timer {
+            color: black;
+            font-size: 1.05rem;
+        }
+
+        .gerisayim {
+            font-size: 1rem;
+            padding-left: 0.25rem;
+        }
+
+        #resim {
+            transition: all 3s ease-in-out;
+            cursor: pointer;
+
+        }
+
+        #resim:hover {
+            transform: rotate(360deg);
+            -webkit-transform: rotate(360deg);
+        }
+    </style>
+
+
+
+
+
+</head>
+
+<body>
+    <header class="p-1 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="https://www.cumhuriyet.edu.tr/"
+                class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none"
+                target="_blank"> <img src="https://www.cumhuriyet.edu.tr/images/sivas_cumhuriyet_universitesi_logo_tr.png"
+                    alt="Cumhuriyet Üniversitesi" width="100%" height="200px"></a>
+
+                <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+                    <li><a href="index.html" class="nav-link text-white"><i class="fa-solid fa-house"></i>Anasayfa</a>
+                    </li>
+                    <li><a href="hakkinda.html" class="nav-link text-white" style="font-size: medium;">Hakkında</a></li>
+                    <li><a href="iletisim.html" class="nav-link text-white" style="font-size: medium;">İletişim</a></li>
+
+                </ul>
+
+                <div class="text-end" id="header_sag">
+                    <div id="btn_div">
+                        <a href="giris.html"><button type="button"
+                                class="btn btn-light text-dark me-2 btn-sm">Giriş</button></a>
+                        <a href="kaydol.html"><button type="button"
+                                class="btn btn-secondary btn-sm">Kayıt ol</button></a>
+                    </div>
+                </div>
+
+                <div class="row text-end">
+                    <div class="col">
+                        <button id="logout_Btn" type="button" class="btn btn-outline-secondary btn-sm"
+                            style="display:none" onclick="logout()">Çıkış
+                        </button>
+                    </div>
+                    <div class="col">
+                        <button id="portal_btn" type="button" class="btn btn-outline-secondary btn-sm"
+                            onclick="window.location.href = 'portal.html'" style="display: none;">Hesap
+                        </button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </header>
+
+    <br><br><br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-auto">
+
+                <ol id="timeline1">
+                    <li class="t-left animated-in" data-animated="0">
+                        <div class="t-time">Türkiye'nin Seçkin Üniversiteleri Arasında Yerini Almıştır<span>2016 - Halen</span></div>
+                        <p>Cumhurbaşkanımız Recep Tayyip Erdoğan tarafından Cumhuriyet Üniversitesi rektörlüğüne atanan Prof. Dr. Alim YILDIZ, 5 Ağustos 2016 tarihinde göreve başlamış ve halen bu görevi sürdürmektedir.
+        
+        Cumhuriyet Üniversitesi, Ocak 2017 tarihi itibariyle  18 Fakülte, 4 Enstitü, 1 devlet konservatuarı, 4 Yüksekokul, 14 Meslek Yüksekokulu, 37 Uygulama Araştırma Merkezi, 1055 yataklı 1 Araştırma ve Uygulama Hastanesi, 47.803 öğrencisi, 1.952 akademik ve 3.457 idari personel ile Türkiye'nin seçkin üniversiteleri arasında yerini almıştır.</p>
+                    </li>
+                    
+                    
+                    <li class="t-right animated-in" data-animated="0">
+                        <div class="t-time">47.803 Öğrencisi,1.952 Akademik ve 3.457 İdari Personel ile Eğitim Öğretimine Devam ediyor... <span>2004 - 2016</span></div>
+                        <p>2004-2008 yılları arasında Prof. Dr. Mehmet Bakır, 2008-2012 yılları arasında ise Prof. Dr. İlyas Dökmetaş, 2012-2016 yılları arasında ise Prof. Dr. Faruk Kocacık rektörlük yapmıştır.</p>
+                    </li>
+                    <li class="t-left animated-in" data-animated="0">
+                        <div class="t-time"> Kurucu Rektör olarak göreve başlayan Prof. Dr. Muvaffak Akman'dan sonra görev yapan Rektörlerimiz<span>1978 - 2004</span></div>
+                        <p>1978-1980 yılları arasında Prof. Dr. İbrahim Alev'in rektörlük yaptığı Cumhuriyet Üniversitesi'nde sırasıyla 1981 yılında Prof. Dr. Erfüz Edgüer ve 1982 yılında ise Prof. Dr. Mahir Tevruz, 1982-1992 yılları arasında Prof. Dr. Muvaffak Akman ikinci kez rektör olarak görev yapmıştır. 1992-1996 yılları arasında rektörlük yapan Prof. Dr. Asım Gültekin'in ardından 1996-2004 yılları arasında Prof. Dr. Ferit Koçoğlu rektörlük yapmıştır.</p>
+                    </li>
+                    <li class="t-right animated-in" data-animated="0">
+                        <div class="t-time">Cumhuriyet Üniversitesi Tıp Fakültesi 1973-1974 Eğitim Öğretim Döneminde 50 Öğrencisi ile Eğitime Başlamıştır. <span>1975 - 1978</span></div>
+                        <p>21 Kasım 1974 tarihinde Hacettepe Üniversitesi Öğretim Üyesi Prof. Dr. Muvaffak Akman, Üniversitelerarası Kurulun aldığı kararla Cumhuriyet Üniversitesi'nin kurucu rektörü olarak göreve atanırken ilk dekan ise Prof. Dr. Yılmaz Sanaç olmuştur.
+        
+        Hacettepe Üniversitesi'ne bağlı olarak kurulan Cumhuriyet Üniversitesi Tıp Fakültesi 1973-1974 eğitim öğretim döneminde 50 öğrencisi ile eğitime başlamıştır. 1974 yılında Cumhuriyet Üniversitesi'ne devredilen 400 yataklı Sivas Göğüs Hastalıkları Hastanesi'ni Rektör Prof. Dr. Muvaffak Akman boş olarak devralmış ve 1975 yılında ise Cumhuriyet Üniversitesi Tıp Fakültesi Uygulama ve Araştırma Hastanesi olarak hizmete açılmıştır.
+        
+        2 Kasım 1975 tarihinde Başbakan Süleyman Demirel, bakanlar ve halkın yoğun katılımı ile Cumhuriyet Üniversitesi kampüsünde temel atma töreni yapılarak ilk binaların yapımına başlanılmıştır.
+        
+        Kurucu Rektör olarak göreve başlayan Prof. Dr. Muvaffak Akman 1974-1978 yılları arasında rektörlük yaptı.</p>
+                    </li>
+                    <li class="t-left animated-out" data-animated="0">
+                        <div class="t-time">1788 sayılı Cumhuriyet Üniversitesi Kuruluş Yasası<span>1973 - 1975</span></div>
+                        <p>4 Eylül Üniversitesi Kurma ve Koruma Derneği ve Sivaslı bürokratların yaptığı çalışmaların ardından Cumhuriyet'in 50'inci yılının kutlanması çerçevesinde TBMM'de alınan bir kararla 5 Nisan 1973 tarih ve 1701 sayılı 50. Yıl kutlama kanununun 5. Maddesinin (b) fıkrası ('50. Yıl münasebetiyle Sivas'ta ilk fakültesi 29 Ekim 1973'te öğrenime başlamak üzere Cumhuriyet Üniversitesi adıyla bir üniversite kurulur') ile Cumhuriyet Üniversitesi, kuruluş çalışmalarına başlanmıştır. Bu maddeye ek olarak 9 Şubat 1974 tarih ve 14794 sayılı yasanın Resmi Gazete'de yayımlanmasıyla 1788 sayılı Cumhuriyet Üniversitesi Kuruluş Yasası ile resmen kurulmuştur.</p>
+                    </li>
+                    <li class="t-right animated-out" data-animated="0">
+                        <div class="t-time">Cumhuriyet Üniversitesi'ni Kurma Çalışmaları<span>1966 - 1973</span></div>
+                        <p>Sivas'ta Üniversite kurma çalışmaları 1966 yılında 4 Eylül Üniversitesi Kurma ve Koruma Derneği'nin kuruluşu ile başlamıştır. Derneğin ilk yönetim kurulu şu isimlerden oluşuyordu; Başkan Dr. Rahmi Karahasanoğlu, 2. Başkan Necmettin Çubukçu, Genel Sekreter Şefik Sümbüloğlu, Muhasip Üye Fikret Polater, Veznedar Üye Nezir Özdemir, Üyeler Selahattin Ortaç, Fethi Peker, Halil Kaya, Hazım Zeyrek, Muhlis Arat ve Yavuz Bülent Bakiler.</p>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- <div class="row ">
+            <div class="col-2"></div>
+            <div class="col-8 justify-content-center">
+                <img src="https://cybermacs.eu/wp-content/uploads/2022/12/Map-son-scaled-1024x838.jpg" width="700px"
+                    height="500px">
+            </div>
+            <div class="col-2"></div>
+        </div> -->
+
+    </div>
+
+    <div class="container" id="footer"> <!--FOOTER-->
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"><svg class="bi" width="30"
+                        height="24">
+                        <use xlink:href="#bootstrap" />
+                    </svg></a>
+                    <span class="mb-3 mb-md-0 text-muted">&copy; 2023 Sivas Cumhuriyet Üniversitesi , Fatma Çetin</span>
+                </div>
+    
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <li class="m-3"><a class="text-muted" href="https://www.facebook.com/cumunivkurumsal/" target="_blank"><i
+                                class="fa-brands fa-facebook fa-xl"></i></a></li>
+                    <li class="m-3"><a class="text-muted" href="https://twitter.com/cumunivkurumsal" target="_blank"><i
+                                class="fa-brands fa-twitter fa-xl"></i></svg></a></li>
+                    <li class="m-3"><a class="text-muted" href="https://www.instagram.com/cumunivkurumsal/" target="_blank"><i
+                                class="fa-brands fa-instagram fa-xl"></i></a></li>
+            </ul>
+        </footer>
+    </div>
+
+
+    <script> /*CIKIS BUTONU ICIN*/
+        checkLogin();
+        girisKontrol();
+
+    </script>
+
+
+
+
+</body>
+
+</html>

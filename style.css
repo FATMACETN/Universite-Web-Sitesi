@@ -1,0 +1,54 @@
+body {
+    background-image: url('https://images.pexels.com/photos/670061/pexels-photo-670061.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+
+
+
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+p {
+    text-indent: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: larger;
+}
+
+#pyazi {
+    color: black;
+    font-size: 1.05rem;
+}
+
+#footer {
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    margin-top: 20%;
+}
+
+#timer {
+    color: black;
+    font-size: 1.05rem;
+}
+
+.gerisayim {
+    font-size: 1rem;
+    padding-left: 0.25rem;
+}
+
+#resim {
+    transition: all 3s ease-in-out;
+    cursor: pointer;
+
+}
+
+#resim:hover {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+}
+

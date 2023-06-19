@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal</title>
+
+    <!--Bootstrap linki-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <!--İkon linki-->
+    <script src="https://kit.fontawesome.com/c51b883833.js" crossorigin="anonymous"></script>
+    <!--JQUERY linki-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <script src="session.js"></script>
+
+
+
+
+    <style>
+        * {
+            font-family: 'Times New Roman', Times, serif;
+
+        }
+
+        p {
+            text-indent: 50px;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: larger;
+        }
+
+        #pyazi {
+            color: black;
+            font-size: 1.05rem;
+        }
+
+        #footer {
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            margin-top: 20%;
+        }
+    </style>
+
+
+    <script> /*GERİ SAYIM*/
+        var endDate = new Date("Apr 31, 2023 12:00:00").getTime();
+        var timer = setInterval(function () {
+
+            let now = new Date().getTime();
+            let t = endDate - now;
+
+            if (t >= 0) {
+
+                let gunler = Math.floor(t / (1000 * 60 * 60 * 24));
+                let saatler = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let dakikalar = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+                let saniyeler = Math.floor((t % (1000 * 60)) / 1000);
+
+                document.getElementById("timer-gunler").innerHTML = gunler +
+                    "<span class='gerisayim'> gün</span>";
+
+                document.getElementById("timer-saatler").innerHTML = ("0" + saatler).slice(-2) +
+                    "<span class='gerisayim'> sa</span>";
+
+                document.getElementById("timer-dakikalar").innerHTML = ("0" + dakikalar).slice(-2) +
+                    "<span class='gerisayim'> dk</span>";
+
+                document.getElementById("timer-saniyeler").innerHTML = ("0" + saniyeler).slice(-2) +
+                    "<span class='gerisayim'> sn</span>";
+            }
+            else {
+                document.getElementById("timer").innerHTML = "Zaman bitti!";
+            }
+        }, 1000);
+
+
+
+    </script>
+
+    <script> /*BLINK*/
+        function goz_kirp() {
+            $('.kirp').css("color", "red");
+            $('.kirp').fadeOut(500);
+            $('.kirp').fadeIn(500);
+        }
+
+        function geri_don() {
+            $('.kirp').css("color", "black");
+        }
+
+        $(document).ready(function () {
+            setInterval(function () {
+                goz_kirp();
+            }, 1500);
+            geri_don();
+        });
+    </script>
+
+</head>
+
+<body>
+    <header class="p-1 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="https://www.cumhuriyet.edu.tr/"
+                class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none"
+                target="_blank"> <img src="https://www.cumhuriyet.edu.tr/images/sivas_cumhuriyet_universitesi_logo_tr.png"
+                    alt="Cumhuriyet Üniversitesi" width="100%" height="200px"></a>
+
+                <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+                    <li><a href="index.html" class="nav-link text-white"><i class="fa-solid fa-house"></i>Anasayfa</a>
+                    </li>
+                    <li><a href="hakkinda.html" class="nav-link text-white" style="font-size: medium;">Hakkında</a></li>
+                    <li><a href="iletisim.html" class="nav-link text-white" style="font-size: medium;">İletişim</a></li>
+                    <li><a href="basvur.html" class="nav-link text-white" style="font-size: medium;">Başvur</a></li>
+                </ul>
+
+                <div class="text-end" id="header_sag">
+                    <div id="btn_div">
+                        <a href="giris.html"><button type="button"
+                                class="btn btn-light text-dark me-2 btn-sm">Giriş</button></a>
+                        <a href="kaydol.html"><button type="button"
+                                class="btn btn-secondary btn-sm">Kayıt ol</button></a>
+                    </div>
+                </div>
+                <div class="row text-end">
+                    <div class="col">
+                        <button id="logout_Btn" type="button" class="btn btn-outline-secondary btn-sm"
+                            style="display:none" onclick="logout()">Çıkış
+                        </button>
+                    </div>
+                    <div class="col">
+                        <button id="portal_btn" type="button" class="btn btn-outline-secondary btn-sm"
+                            onclick="window.location.href = 'portal.html'" style="display: none;">Hesap
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <br> <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 id="sayfa"></h2>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container" id="tarih"> <!--GERİ SAYIM-->
+        <div class="row py-3">
+            <div class="col-auto">
+                <h5 id="timer"><i><span class="kirp">Erasmus'a başvurmak için son gün:</span>
+                        <span id="timer-gunler"></span>
+                        <span id="timer-saatler"></span>
+                        <span id="timer-dakikalar"></span>
+                        <span id="timer-saniyeler"></span></i>
+                </h5>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+
+        <div class="row" id="gizle" style="display: none;">
+            <div class="col-auto py-3">
+                <div class="row">
+                    <div class="col-auto"><span><i><b>Başvuru Durumu:</b></i></span></div>
+                    <div class="col-auto"><span id="durum"></span></div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <form id="dokuman_form" method="POST">
+            <div class="row py-3 justify-content-center" id="dokuman" style="visibility:hidden">
+
+                <div class="col-4">
+
+                    <div class="row justify-content-center">
+                        <div class=" col mb-3">
+                            <h5><i><b>Lütfen Dosyalarınızı yükleyin.</b></i></h5>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class=" col-4 mb-3">
+                            <span for="pasaport" class="form-label">Pasaport</span>
+                        </div>
+                        <div class="col-8 mb-3">
+                            <input class="form-control form-control-sm" type="file" id="pasaport" multiple>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class=" col-4 mb-3">
+                            <span for="cv" class="form-label">Özgeçmiş</span>
+                        </div>
+                        <div class="col-8 mb-3">
+                            <input class="form-control form-control-sm" type="file" id="cv" multiple>
+                        </div>
+
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class=" col-4 mb-3">
+                            <span for="niyetmektubu" class="form-label">Niyet Mektubu</span>
+                        </div>
+                        <div class="col-8 mb-3">
+                            <input class="form-control form-control-sm" type="file" id="niyetmektubu" multiple>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class=" col-4 mb-3">
+                            <span for="ikametgah" class="form-label">İkametgah</span>
+                        </div>
+                        <div class="col-8 mb-3">
+                            <input class="form-control form-control-sm" type="file" id="ikametgah" multiple>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class=" col-4 mb-3">
+                            <span for="diploma" class="form-label">Diploma</span>
+                        </div>
+                        <div class="col-8 mb-3">
+                            <input class="form-control form-control-sm" type="file" id="diploma" multiple>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class=" col-4 mb-3">
+                            <span for="dilyeterlilik" class="form-label">Yabancı Dil Yeterlilik Belgesi</span>
+                        </div>
+                        <div class="col-8 mb-3">
+                            <input class="form-control form-control-sm" type="file" id="dilyeterlilik" multiple>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row" style="align-self: center;">
+                        <div class="col-3">
+                            <button type="submit" class="w-100 btn btn-sm btn-outline-dark">Gönder</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-2"></div>
+
+                <div class=" col-6 mb-3 my-5 ">
+                    <span id="sonuc" style="font-size: large;"></span>
+                </div>
+
+
+            </div>
+
+        </form>
+
+
+    </div>
+
+    <script>//BASVURU YAPMA
+        window.onload = function () {
+
+            var dizi= sessionStorage.getItem("form_dizi");
+
+            if (dizi) {
+                document.getElementById("gizle").style.display = "block";
+                document.getElementById("durum").innerHTML = "Başvurunuz alınmıştır.";
+                document.getElementById("dokuman").style.visibility = "visible";;
+
+
+            }
+        };
+    </script>
+
+    <script> //DOKUMAN YUKLEME
+        document.getElementById("dokuman_form").addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            var cv = document.getElementById("cv").value;
+            var niyetmektubu = document.getElementById("niyetmektubu").value;
+            var pasaport = document.getElementById("pasaport").value;
+            var ikametgah = document.getElementById("ikametgah").value;
+            var dilyeterlilik = document.getElementById("dilyeterlilik").value;
+            var diploma = document.getElementById("diploma").value;
+
+            sessionStorage.setItem("cv", cv);
+            sessionStorage.setItem("niyetmektubu", niyetmektubu);
+            sessionStorage.setItem("pasaport", pasaport);
+            sessionStorage.setItem("ikametgah", ikametgah);
+            sessionStorage.setItem("dilyeterlilik", dilyeterlilik);
+            sessionStorage.setItem("diploma", diploma);
+
+
+
+            document.getElementById("dokuman_form").submit();
+
+
+        });
+
+        function yukle() {
+
+            var cv = sessionStorage.getItem("cv");
+            var niyetmektubu = sessionStorage.getItem("niyetmektubu");
+
+            var pasaport = sessionStorage.getItem("pasaport");
+            var ikametgah = sessionStorage.getItem("ikametgah");
+            var dilyeterlilik = sessionStorage.getItem("dilyeterlilik");
+            var diploma = sessionStorage.getItem("diploma");
+
+
+            if (cv || niyetmektubu || pasaport || ikametgah || dilyeterlilik || diploma) {
+                document.getElementById("sonuc").innerHTML = "<b>Pasaport</b>:" + " " + "<i>" + pasaport + "</i>" + " ," + "<br>" + "<b>Özgeçmiş</b>:" + " " + "<i>" + cv + "</i>" + "<br>" + "<b>Niyet Mektubu</b>:" + " " + "<i>" + niyetmektubu + "</i>" + "<br>" + "<b>İkametgah</b>:" + " " + "<i>" + ikametgah + "</i>" + "<br>" + "<b>Diploma</b>:" + " " + "<i>" + diploma + "</i>" + "<br>" + "<b>Yabancı Dil Yeterlilik Belgesi</b>:" + " " + "<i>" + dilyeterlilik + "</i>";
+            }
+        };
+        window.addEventListener("load", yukle);
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container" id="footer"> <!--FOOTER-->
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"><svg class="bi" width="30"
+                        height="24">
+                        <use xlink:href="#bootstrap" />
+                    </svg></a>
+                    <span class="mb-3 mb-md-0 text-muted">&copy; 2023 Sivas Cumhuriyet Üniversitesi , Fatma Çetin</span>
+                </div>
+    
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <li class="m-3"><a class="text-muted" href="https://www.facebook.com/cumunivkurumsal/" target="_blank"><i
+                                class="fa-brands fa-facebook fa-xl"></i></a></li>
+                    <li class="m-3"><a class="text-muted" href="https://twitter.com/cumunivkurumsal" target="_blank"><i
+                                class="fa-brands fa-twitter fa-xl"></i></svg></a></li>
+                    <li class="m-3"><a class="text-muted" href="https://www.instagram.com/cumunivkurumsal/" target="_blank"><i
+                                class="fa-brands fa-instagram fa-xl"></i></a></li>
+            </ul>
+        </footer>
+    </div>
+    <script> /*CIKIS BUTONU ICIN*/
+        checkLogin();
+        girisKontrol();
+
+    </script>
+
+</body>
+
+</html>
